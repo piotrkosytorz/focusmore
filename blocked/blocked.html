@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stay Focused!</title>
+  <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+
+    <h1>Stay Focused!</h1>
+    <p id="quote" class="quote"></p>
+
+    <div class="blocked-info">
+      <p>You tried to visit:</p>
+      <p id="blockedUrl" class="blocked-url"></p>
+    </div>
+
+    <div class="schedule-info">
+      <p id="scheduleText"></p>
+    </div>
+
+    <div class="actions">
+      <button id="goBack" class="btn primary">Go Back</button>
+      <button id="takeBreak" class="btn secondary">Take 5 min break</button>
+    </div>
+
+    <p class="footer">FocusMore is helping you stay productive</p>
+  </div>
+  <script src="blocked.js"></script>
+</body>
+</html>

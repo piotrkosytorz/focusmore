@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusMore</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>FocusMore</h1>
+      <div id="status" class="status"></div>
+    </header>
+
+    <section class="add-site">
+      <input type="text" id="siteInput" placeholder="Enter site to block (e.g., facebook.com)">
+      <button id="addBtn">Add</button>
+      <button id="addCurrentBtn" title="Block current site">+ Current</button>
+    </section>
+
+    <section class="site-list">
+      <h2>Blocked Sites</h2>
+      <ul id="blockedList"></ul>
+      <p id="emptyMessage" class="empty">No sites blocked yet</p>
+    </section>
+
+    <section class="actions">
+      <button id="pauseBtn" class="pause-btn">Pause for 5 min</button>
+      <a href="#" id="optionsLink">Full Settings</a>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

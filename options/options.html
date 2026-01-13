@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusMore Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>FocusMore Settings</h1>
+    </header>
+
+    <section class="card">
+      <h2>Blocked Sites</h2>
+      <div class="add-site">
+        <input type="text" id="siteInput" placeholder="Enter site to block (e.g., facebook.com)">
+        <button id="addBtn">Add Site</button>
+      </div>
+      <ul id="blockedList"></ul>
+      <p id="emptyMessage" class="empty">No sites blocked yet. Add some above!</p>
+    </section>
+
+    <section class="card">
+      <h2>Schedule</h2>
+      <label class="toggle">
+        <input type="checkbox" id="scheduleEnabled">
+        <span>Enable scheduled blocking</span>
+      </label>
+
+      <div id="scheduleSettings">
+        <div id="daySchedules"></div>
+      </div>
+      <button id="saveSchedule" class="save-btn">Save Schedule</button>
+    </section>
+
+    <section class="card">
+      <h2>Import / Export</h2>
+      <div class="import-export">
+        <button id="exportBtn">Export Settings</button>
+        <button id="importBtn">Import Settings</button>
+        <input type="file" id="importFile" accept=".json" style="display: none;">
+      </div>
+    </section>
+
+    <div id="toast" class="toast"></div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
