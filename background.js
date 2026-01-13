@@ -53,6 +53,28 @@ function isWithinSchedule(schedule) {
   return false;
 }
 
+// Log incident when a site is blocked
+async function logIncident(url) {
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, '');
+    const timestamp = Date.now();
+
+    const result = await chrome.storage.local.get(['incidents']);
+    let incidents = result.incidents || [];
+
+    // Add new incident
+    incidents.push({ site: hostname, timestamp });
+
+    // Cleanup: remove incidents older than 1 year
+    const oneYearAgo = timestamp - (365 * 24 * 60 * 60 * 1000);
+    incidents = incidents.filter(i => i.timestamp > oneYearAgo);
+
+    await chrome.storage.local.set({ incidents });
+  } catch (error) {
+    console.error('FocusMore: Failed to log incident', error);
+  }
+}
+
 // Check if URL matches any blocked site
 function isBlockedSite(url, blockedSites) {
   try {
@@ -89,6 +111,9 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
     const schedule = result.schedule || DEFAULT_SETTINGS.schedule;
 
     if (isBlockedSite(details.url, blockedSites) && isWithinSchedule(schedule)) {
+      // Log the incident
+      logIncident(details.url);
+
       const blockedUrl = encodeURIComponent(details.url);
       const redirectUrl = chrome.runtime.getURL(`blocked/blocked.html?url=${blockedUrl}`);
 
