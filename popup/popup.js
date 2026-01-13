@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusEl = document.getElementById('status');
   const pauseBtn = document.getElementById('pauseBtn');
   const optionsLink = document.getElementById('optionsLink');
+  const statsLink = document.getElementById('statsLink');
 
   // Load and display blocked sites
   function loadBlockedSites() {
@@ -137,6 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
   optionsLink.addEventListener('click', (e) => {
     e.preventDefault();
     chrome.runtime.openOptionsPage();
+  });
+
+  statsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    chrome.tabs.create({ url: chrome.runtime.getURL('stats/stats.html') });
   });
 
   // Initial load

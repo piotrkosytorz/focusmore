@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusMore Statistics</title>
+  <link rel="stylesheet" href="stats.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Statistics</h1>
+      <p class="subtitle">Your focus activity for the past week</p>
+    </header>
+
+    <section class="card">
+      <h2>Blocked Attempts by Site</h2>
+      <div id="barChart" class="chart-container"></div>
+      <div id="legend" class="legend"></div>
+    </section>
+
+    <section class="card">
+      <h2>Activity Heatmap</h2>
+      <p class="chart-description">When you tried to visit blocked sites</p>
+      <div id="heatmap" class="heatmap-container"></div>
+    </section>
+
+    <section class="card summary">
+      <h2>Summary</h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-value" id="totalBlocks">0</span>
+          <span class="stat-label">Total blocks</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="topSite">-</span>
+          <span class="stat-label">Most blocked</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="peakHour">-</span>
+          <span class="stat-label">Peak hour</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="clearData" class="btn-danger">Clear All Data</button>
+    </div>
+  </div>
+  <script src="stats.js"></script>
+</body>
+</html>

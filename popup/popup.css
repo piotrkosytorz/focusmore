@@ -183,12 +183,17 @@ button {
   background: #218838;
 }
 
-#optionsLink {
+.links {
+  display: flex;
+  gap: 16px;
+}
+
+.links a {
   color: #4a90d9;
   text-decoration: none;
   font-size: 13px;
 }
 
-#optionsLink:hover {
+.links a:hover {
   text-decoration: underline;
 }

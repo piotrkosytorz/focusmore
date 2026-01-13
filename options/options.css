@@ -19,12 +19,26 @@ body {
 
 header {
   margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
   font-size: 28px;
   font-weight: 600;
   color: #2c3e50;
+}
+
+.header-link {
+  color: #10b981;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-link:hover {
+  text-decoration: underline;
 }
 
 .card {

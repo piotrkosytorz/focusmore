@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.subtitle {
+  color: #6c757d;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.chart-description {
+  font-size: 13px;
+  color: #6c757d;
+  margin-bottom: 16px;
+}
+
+/* Bar Chart */
+.chart-container {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.bar-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.bar {
+  width: 80%;
+  min-height: 4px;
+  transition: opacity 0.2s;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+.bar-label {
+  font-size: 11px;
+  color: #6c757d;
+  margin-top: 8px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* Heatmap */
+.heatmap-container {
+  overflow-x: auto;
+}
+
+.heatmap {
+  display: grid;
+  grid-template-columns: 60px repeat(24, 1fr);
+  gap: 2px;
+  min-width: 600px;
+}
+
+.heatmap-header {
+  font-size: 10px;
+  color: #6c757d;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.heatmap-row-label {
+  font-size: 12px;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.heatmap-cell {
+  aspect-ratio: 1;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 3px;
+  background: #e9ecef;
+  transition: transform 0.1s;
+}
+
+.heatmap-cell:hover {
+  opacity: 0.8;
+}
+
+.heatmap-cell[data-count="0"] { background: #e9ecef; }
+.heatmap-cell[data-level="1"] { background: #d1fae5; }
+.heatmap-cell[data-level="2"] { background: #6ee7b7; }
+.heatmap-cell[data-level="3"] { background: #34d399; }
+.heatmap-cell[data-level="4"] { background: #10b981; }
+.heatmap-cell[data-level="5"] { background: #059669; }
+
+/* Summary */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat {
+  text-align: center;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* Actions */
+.actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-danger {
+  padding: 10px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+}
+
+.empty-state p {
+  margin-top: 8px;
+  font-size: 14px;
+}
