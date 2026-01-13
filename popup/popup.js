@@ -99,6 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Random words for pause confirmation
+  const CONFIRM_WORDS = [
+    'focus', 'work', 'goals', 'progress', 'achieve', 'effort', 'discipline',
+    'commit', 'persist', 'succeed', 'thrive', 'excel', 'improve', 'grow'
+  ];
+
   // Toggle pause
   function togglePause() {
     chrome.storage.sync.get(['tempDisabled'], (result) => {
@@ -106,9 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Resume - clear the temp disable
         chrome.storage.sync.remove('tempDisabled', updateStatus);
       } else {
-        // Pause for 5 minutes
-        const pauseUntil = new Date(Date.now() + 5 * 60 * 1000).toISOString();
-        chrome.storage.sync.set({ tempDisabled: pauseUntil }, updateStatus);
+        // Ask for confirmation with random word
+        const randomWord = CONFIRM_WORDS[Math.floor(Math.random() * CONFIRM_WORDS.length)];
+        const confirmation = prompt(`Type "${randomWord}" to pause blocking for 5 minutes:`);
+        if (confirmation && confirmation.toLowerCase() === randomWord) {
+          const pauseUntil = new Date(Date.now() + 5 * 60 * 1000).toISOString();
+          chrome.storage.sync.set({ tempDisabled: pauseUntil }, updateStatus);
+        }
       }
     });
   }
