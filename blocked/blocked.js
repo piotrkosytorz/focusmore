@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const quoteEl = document.getElementById('quote');
   const blockedUrlEl = document.getElementById('blockedUrl');
   const scheduleTextEl = document.getElementById('scheduleText');
-  const goBackBtn = document.getElementById('goBack');
-  const takeBreakBtn = document.getElementById('takeBreak');
 
   // Display random quote
   const randomQuote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
@@ -60,24 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Go back button
-  goBackBtn.addEventListener('click', () => {
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      window.close();
-    }
-  });
-
-  // Take a break button
-  takeBreakBtn.addEventListener('click', () => {
-    const pauseUntil = new Date(Date.now() + 5 * 60 * 1000).toISOString();
-    chrome.storage.sync.set({ tempDisabled: pauseUntil }, () => {
-      if (blockedUrl) {
-        window.location.href = decodeURIComponent(blockedUrl);
-      } else {
-        window.history.back();
-      }
-    });
-  });
 });
