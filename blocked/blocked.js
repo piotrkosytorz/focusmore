@@ -36,14 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const blockedUrl = params.get('url');
 
-  if (blockedUrl) {
-    try {
-      const url = new URL(decodeURIComponent(blockedUrl));
-      blockedUrlEl.textContent = url.hostname;
-    } catch {
-      blockedUrlEl.textContent = 'Unknown site';
-    }
-  } else {
+  try {
+    const url = new URL(decodeURIComponent(blockedUrl));
+    blockedUrlEl.textContent = url.hostname;
+  } catch {
     blockedUrlEl.textContent = 'Unknown site';
   }
 
